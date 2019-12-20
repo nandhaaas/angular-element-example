@@ -14,4 +14,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 Run `npm run build` to build the custom element. The build artifacts will be stored in the `dist/angular-element-example/` directory.
 
-Once the build is successful, navigate to `dist/angular-element-example/` directory and open test.html to see the custom element in action
+Once the build is successful, navigate to `dist/angular-element-example/` directory and open `dist/angular-element-example/test.html` to see the custom element in action
