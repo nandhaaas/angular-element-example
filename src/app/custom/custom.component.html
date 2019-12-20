@@ -1,0 +1,67 @@
+
+<div class="container" style="padding-top: 50px;">
+    <div class="alert alert-success" role="alert" *ngIf="showSuccess">
+      Saved successfully!
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Choose</label>
+      <select class="form-control" name="option" [(ngModel)]="option" (change)="onOption()">
+        <option value="D">Daily</option>
+        <option value="W">Weekly</option>
+        <option value="M">Monthly</option>
+      </select>
+    </div>
+    <form *ngIf="option == 'D'" [formGroup]="formGroup">
+      <h2>Daily</h2>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Start Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('startDate').valid && formGroup.get('startDate').touched" placeholder="Start Date" formControlName="startDate">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">End Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('endDate').valid && formGroup.get('endDate').touched" placeholder="End Date" formControlName="endDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Comments</label>
+        <input type="text" class="form-control" placeholder="Add your comments here" formControlName="comments">
+      </div>
+    </form>
+    <form *ngIf="option == 'W'" [formGroup]="formGroup">
+      <h2>Weekly</h2>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Start Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('startDate').valid && formGroup.get('startDate').touched" placeholder="Start Date" formControlName="startDate">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">End Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('endDate').valid && formGroup.get('endDate').touched" placeholder="End Date" formControlName="endDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Comments</label>
+        <input type="text" class="form-control" placeholder="Add your comments here" formControlName="comments">
+      </div>
+    </form>
+    <form *ngIf="option == 'M'" [formGroup]="formGroup">
+      <h2>Monthly</h2>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Start Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('startDate').valid && formGroup.get('startDate').touched" placeholder="Start Date" formControlName="startDate">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">End Date</label>
+          <input type="date" class="form-control" [class.is-invalid]="!formGroup.get('endDate').valid && formGroup.get('endDate').touched" placeholder="End Date" formControlName="endDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Comments</label>
+        <input type="text" class="form-control" placeholder="Add your comments here" formControlName="comments">
+      </div>
+    </form>
+    <button *ngIf="option != null" type="button" (click)="onSave()" class="btn btn-primary">Save</button>
+    <button *ngIf="option != null" type="button" (click)="onCancel()" class="btn btn-danger" style="margin-left: 20px;">Cancel</button>
+  </div>
